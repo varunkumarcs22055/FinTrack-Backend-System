@@ -1,0 +1,40 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.finance:finance-backend >---------------------
+[INFO] Building Finance Data Processing Backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finance-backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ finance-backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 35 source files with javac [debug release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/DELL/OneDrive/Desktop/Role-Based/finance-backend/src/main/java/com/finance/backend/config/SecurityConfig.java:[68,41] cannot find symbol
+  symbol:   method authenticationProvider()
+  location: class com.finance.backend.config.SecurityConfig
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.201 s
+[INFO] Finished at: 2026-04-01T21:14:30+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project finance-backend: Compilation failure
+[ERROR] /C:/Users/DELL/OneDrive/Desktop/Role-Based/finance-backend/src/main/java/com/finance/backend/config/SecurityConfig.java:[68,41] cannot find symbol
+[ERROR]   symbol:   method authenticationProvider()
+[ERROR]   location: class com.finance.backend.config.SecurityConfig
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

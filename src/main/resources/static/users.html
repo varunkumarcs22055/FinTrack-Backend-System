@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack User Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="font-bold text-lg" style="color: var(--primary);">FinTrack</div>
+        <div class="nav-links">
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/records.html" id="nav-records">Records</a>
+            <a href="/users.html" class="active" id="nav-users">Users</a>
+        </div>
+        <div class="flex items-center" style="gap: 1rem;">
+            <span id="nav-username" class="text-sm font-semibold text-gray-600"></span>
+            <button id="logout-btn" class="btn btn-small btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="margin-bottom: 2rem; font-size: 1.875rem;">User Management</h1>
+
+        <div class="card" style="margin-bottom: 2rem;">
+            <p class="text-gray-600 italic">This panel is only accessible to ADMIN users. You can assign roles, toggle account access, or delete users entirely.</p>
+        </div>
+
+        <!-- Users Table -->
+        <div class="card" style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-tbody">
+                    <tr><td colspan="6" class="text-center py-4 text-gray-500">Loading users...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/users.js"></script>
+</body>
+</html>

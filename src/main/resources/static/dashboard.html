@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .summary-box { padding: 1.5rem; text-align: center; }
+        .summary-box h3 { font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .summary-box p { font-size: 2rem; font-weight: 700; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="font-bold text-lg" style="color: var(--primary);">FinTrack</div>
+        <div class="nav-links">
+            <a href="/dashboard.html" class="active">Dashboard</a>
+            <a href="/records.html" id="nav-records">Records</a>
+            <a href="/users.html" id="nav-users">Users</a>
+        </div>
+        <div class="flex items-center" style="gap: 1rem;">
+            <span id="nav-username" class="text-sm font-semibold text-gray-600"></span>
+            <button id="logout-btn" class="btn btn-small btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="margin-bottom: 2rem; font-size: 1.875rem;">Dashboard Overview</h1>
+        
+        <!-- Summary Cards -->
+        <div class="grid-4">
+            <div class="card summary-box border" style="border-left: 4px solid var(--success);">
+                <h3>Total Income</h3>
+                <p id="total-income" class="text-green-600">Loading...</p>
+            </div>
+            <div class="card summary-box border" style="border-left: 4px solid var(--danger);">
+                <h3>Total Expenses</h3>
+                <p id="total-expenses" class="text-red-600">Loading...</p>
+            </div>
+            <div class="card summary-box border" style="border-left: 4px solid var(--primary);">
+                <h3>Net Balance</h3>
+                <p id="net-balance">Loading...</p>
+            </div>
+            <div class="card summary-box border">
+                <h3>Total Records</h3>
+                <p id="total-records" class="text-gray-600">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Category Breakdowns -->
+        <div class="grid-2">
+            <div class="card">
+                <h3 class="font-bold text-gray-600 mb-4" style="border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Income by Category</h3>
+                <ul id="income-categories" style="list-style: none;">Loading...</ul>
+            </div>
+            <div class="card">
+                <h3 class="font-bold text-gray-600 mb-4" style="border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Expense by Category</h3>
+                <ul id="expense-categories" style="list-style: none;">Loading...</ul>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="card" style="margin-top: 1.5rem;">
+            <h3 class="font-bold text-gray-600 mb-4" style="border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Recent Transactions</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-transactions">
+                        <tr><td colspan="4" class="text-center py-4 text-gray-500">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

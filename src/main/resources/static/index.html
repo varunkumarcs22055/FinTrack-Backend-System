@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="flex items-center" style="height: 100vh; justify-content: center;">
+
+    <div class="card" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center" style="margin-bottom: 0.5rem; color: var(--primary);">FinTrack</h2>
+        <p class="text-center text-gray-500" style="margin-bottom: 1.5rem;">Finance Data Processing System</p>
+
+        <!-- Login Form -->
+        <form id="login-form">
+            <div id="login-error" class="hidden text-red-500 text-sm py-2 text-center bg-red-100 rounded mb-3"></div>
+            
+            <label class="text-sm font-semibold text-gray-600">Username</label>
+            <input type="text" name="username" id="loginUsername" class="input-field" required>
+            
+            <label class="text-sm font-semibold text-gray-600">Password</label>
+            <input type="password" name="password" id="loginPassword" class="input-field" required>
+            
+            <button type="submit" class="btn" style="width: 100%; margin-top: 0.5rem;">Login</button>
+            <p class="text-center text-sm" style="margin-top: 1rem;">
+                Don't have an account? <a href="#" id="show-register" class="text-blue-500 hover:underline">Register</a>
+            </p>
+
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <p class="text-xs text-center text-gray-500 mb-2">Demo Logins (Click to autofill)</p>
+                <div class="flex" style="gap: 0.5rem; justify-content: center;">
+                    <button type="button" class="btn-secondary btn-small demo-login" data-username="admin">Admin</button>
+                    <button type="button" class="btn-secondary btn-small demo-login" data-username="analyst">Analyst</button>
+                    <button type="button" class="btn-secondary btn-small demo-login" data-username="viewer">Viewer</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="hidden">
+            <div id="register-error" class="hidden text-red-500 text-sm py-2 text-center bg-red-100 rounded mb-3" style="white-space: pre-wrap; text-align: left; padding: 0.5rem;"></div>
+            
+            <label class="text-sm font-semibold text-gray-600">Username</label>
+            <input type="text" name="username" class="input-field" required minlength="3" maxlength="50">
+            
+            <label class="text-sm font-semibold text-gray-600">Email</label>
+            <input type="email" name="email" class="input-field" required>
+            
+            <label class="text-sm font-semibold text-gray-600">Password</label>
+            <input type="password" name="password" class="input-field" required minlength="6">
+            
+            <label class="text-sm font-semibold text-gray-600">Confirm Password</label>
+            <input type="password" name="confirmPassword" class="input-field" required minlength="6">
+            
+            <button type="submit" class="btn" style="width: 100%; margin-top: 0.5rem;">Register (Viewer Role)</button>
+            <p class="text-center text-sm" style="margin-top: 1rem;">
+                Already have an account? <a href="#" id="show-login" class="text-blue-500 hover:underline">Login</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

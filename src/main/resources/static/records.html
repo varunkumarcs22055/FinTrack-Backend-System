@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="font-bold text-lg" style="color: var(--primary);">FinTrack</div>
+        <div class="nav-links">
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/records.html" class="active" id="nav-records">Records</a>
+            <a href="/users.html" id="nav-users">Users</a>
+        </div>
+        <div class="flex items-center" style="gap: 1rem;">
+            <span id="nav-username" class="text-sm font-semibold text-gray-600"></span>
+            <button id="logout-btn" class="btn btn-small btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
+            <h1 style="font-size: 1.875rem;">Financial Records</h1>
+            <button id="add-record-btn" class="btn">+ Add Record</button>
+        </div>
+
+        <!-- Filter Area -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <form id="filter-form" class="flex" style="gap: 1rem; align-items: flex-end; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 150px;">
+                    <label class="text-sm font-semibold text-gray-600">Type</label>
+                    <select id="filter-type" class="input-field" style="margin-bottom: 0;">
+                        <option value="">All Types</option>
+                        <option value="INCOME">Income</option>
+                        <option value="EXPENSE">Expense</option>
+                    </select>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <label class="text-sm font-semibold text-gray-600">Category</label>
+                    <select id="filter-category" class="input-field" style="margin-bottom: 0;">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <label class="text-sm font-semibold text-gray-600">From Date</label>
+                    <input type="date" id="filter-date-from" class="input-field" style="margin-bottom: 0;">
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <label class="text-sm font-semibold text-gray-600">To Date</label>
+                    <input type="date" id="filter-date-to" class="input-field" style="margin-bottom: 0;">
+                </div>
+                <div>
+                    <button type="submit" class="btn" style="height: 42px;">Filter</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Records Table -->
+        <div class="card" style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Created By</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="records-tbody">
+                    <tr><td colspan="7" class="text-center py-4 text-gray-500">Loading records...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal (Tailwind-like classes simulated in CSS) -->
+    <div id="record-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-title" class="font-bold text-lg mb-4" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Add Record</h2>
+            <form id="record-form">
+                
+                <div class="grid-2" style="margin-top: 0;">
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600">Type</label>
+                        <select id="type" name="type" class="input-field" required>
+                            <option value="INCOME">Income</option>
+                            <option value="EXPENSE">Expense</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600">Amount</label>
+                        <input type="number" step="0.01" min="0.01" id="amount" name="amount" class="input-field" required placeholder="0.00">
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 0;">
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600">Category</label>
+                        <input type="text" id="category" name="category" class="input-field" required placeholder="e.g. Salary, Rent">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600">Date</label>
+                        <input type="date" id="date" name="date" class="input-field" required>
+                    </div>
+                </div>
+
+                <label class="text-sm font-semibold text-gray-600">Description</label>
+                <textarea id="description" name="description" class="input-field" rows="2" placeholder="Optional notes..."></textarea>
+                
+                <div class="flex justify-between" style="margin-top: 1rem;">
+                    <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn bg-green-600">Save Record</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/records.js"></script>
+</body>
+</html>
